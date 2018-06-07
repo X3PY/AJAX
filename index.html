@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<button>GET CUTE DOG</button>
+<div id="dog"></div>
+<script>
+    $("button").click(function(){
+        var jsonURL = "https://dog.ceo/api/breeds/image/random";
+        $.getJSON(jsonURL, function(json){
+            var imglist = "";
+            $.each(json, function() {
+                imglist += '<li><img src="' + this + '"></li>'
+            })
+            $("div").append(imglist)
+        })
+    })
+</script>
+
+</body>
+</html>
